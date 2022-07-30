@@ -1,0 +1,51 @@
+if game.PlaceId == 4282985734 then
+
+print("Anti Afk On")
+
+local vu = game:GetService("VirtualUser")
+game:GetService("Players").LocalPlayer.Idled:connect(function()
+   vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+   wait(1)
+   vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+end)
+
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+ 
+local Window = OrionLib:MakeWindow({Name = "Free Emotes For The Poors"})
+ 
+local Tab = Window:MakeTab({
+	Name = "Idk",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+ 
+local Tab2 = Window:MakeTab({
+	Name = "Bruh",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+Tab2:AddLabel("Hello there")
+Tab2:AddLabel("I have no scripting Experience")
+Tab2:AddLabel("So i just copied the Emotes From a script lol ")
+Tab2:AddLabel("-Probably ZaneIs")
+
+Tab:AddLabel("Combat Warriors Emotes")
+
+Tab:AddButton({
+	Name = "Click for free Emotes",
+	Callback = function()
+       	for i,v in pairs(getgc(true)) do
+            if typeof(v) == "table" and rawget(v, "gamepassIdRequired") then
+                if v.gamepassIdRequired ==  "danceEmotes" then
+                    v.gamepassIdRequired = nil
+                elseif v.gamepassIdRequired == "toxicEmotes" then
+                    v.gamepassIdRequired = nil
+                elseif v.gamepassIdRequired == "respectEmotes" then
+                    v.gamepassIdRequired = nil
+                end
+            end
+        end
+    end
+})
+
+end
